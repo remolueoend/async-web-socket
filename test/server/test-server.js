@@ -4,16 +4,16 @@ var http = require('http'),
     
 var server = http.createServer(handler),
     io = socketIO(server),
-    async = asyncWebSocket.AsyncSocketIO(null, {debug: true});
+    async = asyncWebSocket.io(null, {debug: true});
 
 io.on('connect', function(socket){
     async.addSocket(socket);
 });
 
-async.onRequest('update', function(data, req){
+async.onRequest('update', function(clientData, req){
     return {
         id: req.id,
-        content: data,
+        content: clientData,
         type: req.type
     };
 });
