@@ -37,7 +37,7 @@ var async = require('async-web-socket).io(io, [options]);
 // server
 var io = require('socket.io')(8080);
 // You do not have to provide a socket here. You're the server:
-var async = require('async-web-socket).io(null, [options]);
+var async = require('async-web-socket').io(null, [options]);
 io.on('connect', function(socket){
   // add the client socket as soon as it connects to the server:
   async.addSocket(socket);
